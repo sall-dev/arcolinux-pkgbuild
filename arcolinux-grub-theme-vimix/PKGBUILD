@@ -1,7 +1,7 @@
 # Maintainer: levinit <levinit@outlook.com>
 # Editor : Erik Dubois <erik.dubois@gmail.com>
 
-pkgname=arcolinux-grub-themes-vimix-git
+pkgname=arcolinux-grub-theme-vimix-git
 pkgver=1.2.1
 pkgrel=2
 pkgdesc='vimix grub2 theme'
