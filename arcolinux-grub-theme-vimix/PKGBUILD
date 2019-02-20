@@ -3,7 +3,7 @@
 
 pkgname=arcolinux-grub-theme-vimix-git
 pkgver=1.2.1
-pkgrel=2
+pkgrel=3
 pkgdesc='vimix grub2 theme'
 arch=(any)
 url='https://github.com/vinceliuice/grub2-themes'
