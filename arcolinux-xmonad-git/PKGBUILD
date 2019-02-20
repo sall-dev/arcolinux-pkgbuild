@@ -3,13 +3,14 @@ pkgname=arcolinux-xmonad-git
 _pkgname=arcolinux-xmonad
 _destname="/etc/skel/.xmonad/"
 _licensedir="/usr/share/arcolinux/licenses/"
-pkgver=19.2
-pkgrel=10
+pkgver=19.3
+pkgrel=4
 pkgdesc="xmonad config and themes created for arcolinux"
 arch=('any')
 url="https://github.com/arcolinux/arcolinux-xmonad"
 license=('GPL3')
 makedepends=('git')
+conflicts=('arcolinux-xmonad-polybar-git' 'arcolinux-xmonad-xmobar-git')
 depends=('bash')
 provides=("${pkgname}")
 options=(!strip !emptydirs)
@@ -17,9 +18,6 @@ source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")
 sha256sums=('SKIP')
 install='readme.install'
 package() {
-	rm -f "${srcdir}/${_pkgname}/"README.md
-	rm -f "${srcdir}/${_pkgname}/"git-v*
-	rm -f "${srcdir}/${_pkgname}/"setup-git-v*
 	mkdir -p "${pkgdir}${_destname}"
 	mkdir -p "${pkgdir}${_licensedir}${_pkgname}"
 	mv "${srcdir}/${_pkgname}/"LICENSE "${pkgdir}${_licensedir}${_pkgname}/LICENSE"
