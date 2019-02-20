@@ -1,0 +1,24 @@
+# Maintainer: Erik Dubois <erik.dubois@gmail.com>
+pkgname=arcolinux-mirrorlist-git
+_pkgname=arcolinux-mirrorlist
+_destname="/etc/pacman.d"
+_licensedir="/usr/share/arcolinux/licenses/"
+pkgver=19.1
+pkgrel=1
+pkgdesc="ArcoLinux mirrorlist for use by pacman"
+arch=('any')
+url="https://github.com/arcolinux/arcolinux-mirrorlist"
+license=('GPL3')
+makedepends=('git')
+depends=()
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")
+md5sums=('SKIP')
+backup=(etc/pacman.d/arcolinux-mirrorlist)
+package() {
+	mkdir -p "${pkgdir}${_destname}"
+	mkdir -p "${pkgdir}${_licensedir}${_pkgname}"
+	mv "${srcdir}/${_pkgname}/"LICENSE "${pkgdir}${_licensedir}${_pkgname}/LICENSE"
+	install -m644 $srcdir/${_pkgname}/arcolinux-mirrorlist $pkgdir/etc/pacman.d/
+}

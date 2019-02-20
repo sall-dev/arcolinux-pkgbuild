@@ -1,0 +1,27 @@
+# Maintainer: Erik Dubois <erik.dubois@gmail.com>
+pkgname=arcolinux-slimlock-themes-git
+_pkgname=arcolinux-slimlock-themes
+_destname="/usr/share/slim/themes/"
+_licensedir="/usr/share/arcolinux/licenses/"
+_etcdir="/etc/"
+pkgver=6.9
+pkgrel=1
+pkgdesc="Slimlock themes created for arcolinux"
+arch=('any')
+url="https://github.com/arcolinux/arcolinux-Slimlock-Themes"
+license=('GPL3')
+makedepends=('git')
+depends=()
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")
+sha256sums=('SKIP')
+package() {
+	rm -f "${srcdir}/${_pkgname}/"README.md
+	rm -f "${srcdir}/${_pkgname}/"git-v*
+	mkdir -p "${pkgdir}${_destname}"
+	mkdir -p "${pkgdir}${_licensedir}${_pkgname}"
+	mkdir -p "${pkgdir}${_etcdir}"
+	mv "${srcdir}/${_pkgname}/"LICENSE "${pkgdir}${_licensedir}${_pkgname}/LICENSE"
+	cp -r "${srcdir}/${_pkgname}/"* "${pkgdir}${_destname}"
+}

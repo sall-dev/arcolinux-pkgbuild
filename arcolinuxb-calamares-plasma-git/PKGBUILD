@@ -1,0 +1,27 @@
+# Maintainer: Erik Dubois <erik.dubois@gmail.com>
+pkgname=arcolinuxb-calamares-plasma-git
+_pkgname=arcolinuxb-calamares-plasma
+_destname="/etc/calamares"
+_licensedir="/usr/share/arcolinux/licenses/"
+pkgver=19.1
+pkgrel=7
+pkgdesc="calamares for arcolinux"
+arch=('any')
+url="https://github.com/arcolinux/arcolinuxb-calamares-plasma"
+license=('GPL3')
+makedepends=('git')
+depends=()
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")
+sha256sums=('SKIP')
+install='readme.install'
+package() {
+	rm -f "${srcdir}/${_pkgname}/"README.md
+	rm -f "${srcdir}/${_pkgname}/"git-v*
+	rm -f "${srcdir}/${_pkgname}/"setup-git-v*
+	mkdir -p "${pkgdir}${_licensedir}${_pkgname}"
+	mv "${srcdir}/${_pkgname}/"LICENSE "${pkgdir}${_licensedir}${_pkgname}/LICENSE"
+	mkdir -p "${pkgdir}${_destname}"
+	cp -r "${srcdir}/${_pkgname}/calamares/"* "${pkgdir}${_destname}"
+}

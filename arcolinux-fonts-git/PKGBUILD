@@ -1,0 +1,27 @@
+# Maintainer: Erik Dubois <erik.dubois@gmail.com>
+pkgname=arcolinux-fonts-git
+_pkgname=arcolinux-fonts
+_destname="/usr/share/fonts/"
+_licensedir="/usr/share/arcolinux/licenses/"
+pkgver=18.12
+pkgrel=2
+pkgdesc="fonts mainly for conkies of arcolinux"
+arch=('any')
+url="https://github.com/arcolinux/arcolinux-fonts"
+license=('GPL3')
+makedepends=('git')
+depends=('fontconfig')
+optdepends=('')
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")
+sha256sums=('SKIP')
+package() {
+	rm -f "${srcdir}/${_pkgname}/"README.md
+	rm -f "${srcdir}/${_pkgname}/"git-v*
+	rm -f "${srcdir}/${_pkgname}/"setup-git-v*
+	mkdir -p "${pkgdir}${_destname}"
+	mkdir -p "${pkgdir}${_licensedir}${_pkgname}"
+	mv "${srcdir}/${_pkgname}/"copyright/* "${pkgdir}${_licensedir}${_pkgname}/"
+	cp -r "${srcdir}/${_pkgname}/fonts/"* "${pkgdir}${_destname}"
+}

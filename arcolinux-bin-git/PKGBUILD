@@ -1,0 +1,25 @@
+# Maintainer: Erik Dubois <erik.dubois@gmail.com>
+pkgname=arcolinux-bin-git
+_pkgname=arcolinux-bin
+_destname1="/etc/skel/.bin"
+_licensedir="/usr/share/arcolinux/licenses/"
+pkgver=19.2
+pkgrel=2
+pkgdesc=".bin folder from arcolinux providing fun scripts"
+arch=('any')
+url="https://github.com/arcolinux/arcolinux-bin"
+license=('GPL3')
+makedepends=('git')
+depends=('bash')
+provides=("${pkgname}")
+#options=(!strip !emptydirs)
+source=(${pkgname}::"git+https://github.com/arcolinux/${_pkgname}")
+sha256sums=('SKIP')
+install='readme.install'
+package() {
+  install -dm755 "$pkgdir/$_licensedir/$_pkgname"
+  install -m644 "$srcdir/$pkgname/LICENSE" "$pkgdir/$_licensedir/$_pkgname"
+
+  install -dm755 "$pkgdir$_destname1"
+  cp -rfp "$srcdir/$pkgname$_destname1/"* "$pkgdir$_destname1"
+}
