@@ -48,7 +48,7 @@ find .   -not -name Makefile\
 		 -not -name '*.jpg'\
 		 -not -name '*.cfg'\
 		 -not -name '*.desktop'\
-		 -not -name 'backgrounds'\
+		 -not -name 'backgrounds/arco*'\
 		 -delete
 
 

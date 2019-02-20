@@ -2,8 +2,8 @@
 # Editor : Erik Dubois <erik.dubois@gmail.com>
 
 pkgname=arcolinux-grub-themes-vimix-git
-pkgver=1.0.1
-pkgrel=1
+pkgver=1.2.1
+pkgrel=2
 pkgdesc='vimix grub2 theme'
 arch=(any)
 url='https://github.com/vinceliuice/grub2-themes'
@@ -19,8 +19,6 @@ package() {
 	cp ../backgrounds/* $srcdir/grub2-themes/grub-theme-vimix/Vimix/
     install -dm755 $pkgdir/boot/grub/themes/
     cd $srcdir/grub2-themes/grub-theme-vimix
-    cp Vimix/icons/arcolinux.png Vimix/icons/arcolinuxb.png
-    cp Vimix/icons/arcolinux.png Vimix/icons/arcolinuxd.png
     cp Vimix $pkgdir/boot/grub/themes/ -r
 }
 
