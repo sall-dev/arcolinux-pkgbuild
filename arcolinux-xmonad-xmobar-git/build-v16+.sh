@@ -5,17 +5,17 @@ search=arcolinux
 
 #### via clean chroot
 
-CHROOT=$HOME/Documents/chroot-arcolinux
-arch-nspawn $CHROOT/root pacman -Syu
-makechrootpkg -c -r $CHROOT
-
-echo "signing the package"
-gpg --detach-sign $search*pkg.tar.xz
+# CHROOT=$HOME/Documents/chroot-arcolinux
+# arch-nspawn $CHROOT/root pacman -Syu
+# makechrootpkg -c -r $CHROOT
+#
+# echo "signing the package"
+# gpg --detach-sign $search*pkg.tar.xz
 
 
 # or via makepkg
 
-#makepkg --sign
+makepkg --sign
 
 
 #### cleaning up
