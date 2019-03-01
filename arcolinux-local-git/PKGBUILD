@@ -1,9 +1,9 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
 pkgname=arcolinux-local-git
 _pkgname=arcolinux-local
-_destname="/etc/skel/.local/"
+_destname1="/etc/skel/.local/share/xfce4/helpers/"
 _licensedir="/usr/share/arcolinux/licenses/"
-pkgver=18.12
+pkgver=19.3
 pkgrel=1
 pkgdesc="local for arcolinux"
 arch=('any')
@@ -17,11 +17,9 @@ source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")
 sha256sums=('SKIP')
 install='readme.install'
 package() {
-	rm -f "${srcdir}/${_pkgname}/"README.md
-	rm -f "${srcdir}/${_pkgname}/"git-v*
-	rm -f "${srcdir}/${_pkgname}/"setup-git-v*
-	mkdir -p "${pkgdir}${_licensedir}${_pkgname}"
-	mv "${srcdir}/${_pkgname}/"LICENSE "${pkgdir}${_licensedir}${_pkgname}/LICENSE"
-	mkdir -p "${pkgdir}${_destname}"
-	cp -r "${srcdir}/${_pkgname}/local/"* "${pkgdir}${_destname}"
+	install -dm755 ${pkgdir}${_licensedir}${_pkgname}
+	install -m644  ${srcdir}/${_pkgname}/LICENSE ${pkgdir}${_licensedir}${_pkgname}
+
+	install -dm755 ${pkgdir}${_destname1}
+	install -m644  ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
 }

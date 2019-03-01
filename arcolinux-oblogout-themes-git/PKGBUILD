@@ -1,10 +1,9 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
 pkgname=arcolinux-oblogout-themes-git
 _pkgname=arcolinux-oblogout-themes
-_destname="/usr/share/themes/"
-_etcdir="/etc/"
+_destname1="/usr/share/themes/"
 _licensedir="/usr/share/arcolinux/licenses/"
-pkgver=6.9
+pkgver=19.3
 pkgrel=1
 pkgdesc="Oblogout themes created for arcolinux"
 arch=('any')
@@ -17,11 +16,9 @@ options=(!strip !emptydirs)
 source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")
 sha256sums=('SKIP')
 package() {
-	rm -f "${srcdir}/${_pkgname}/"README.md
-	rm -f "${srcdir}/${_pkgname}/"git-v*
-	mkdir -p "${pkgdir}${_destname}"
-	mkdir -p "${pkgdir}${_licensedir}${_pkgname}"
-	mkdir -p "${pkgdir}${_etcdir}"
-	mv "${srcdir}/${_pkgname}/"LICENSE "${pkgdir}${_licensedir}${_pkgname}/LICENSE"
-	cp -r "${srcdir}/${_pkgname}/"* "${pkgdir}${_destname}"
+	install -dm755 ${pkgdir}${_licensedir}${_pkgname}
+	install -m644  ${srcdir}/${_pkgname}/LICENSE ${pkgdir}${_licensedir}${_pkgname}
+
+	install -dm755 ${pkgdir}${_destname1}
+	cp -r  ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
 }

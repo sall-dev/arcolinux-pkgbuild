@@ -1,15 +1,16 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
-pkgname=arcolinux-calamares-git
-_pkgname=arcolinux-calamares
+pkgname=arcolinux-calamares-git-git
+_pkgname=arcolinux-calamares-git
 _destname="/etc/calamares"
 _licensedir="/usr/share/arcolinux/licenses/"
-pkgver=19.2
-pkgrel=1
-pkgdesc="calamares for arcolinux"
+pkgver=19.3
+pkgrel=3
+pkgdesc="calamares git for arcolinux"
 arch=('any')
-url="https://github.com/arcolinux/arcolinux-calamares"
+url="https://github.com/arcolinux/arcolinux-calamares-git-git"
 license=('GPL3')
 makedepends=('git')
+conflicts=('arcolinux-calamares-git' 'arcolinux-calamares-dev-git')
 depends=()
 provides=("${pkgname}")
 options=(!strip !emptydirs)
@@ -17,9 +18,6 @@ source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")
 sha256sums=('SKIP')
 install='readme.install'
 package() {
-	rm -f "${srcdir}/${_pkgname}/"README.md
-	rm -f "${srcdir}/${_pkgname}/"git-v*
-	rm -f "${srcdir}/${_pkgname}/"setup-git-v*
 	mkdir -p "${pkgdir}${_licensedir}${_pkgname}"
 	mv "${srcdir}/${_pkgname}/"LICENSE "${pkgdir}${_licensedir}${_pkgname}/LICENSE"
 	mkdir -p "${pkgdir}${_destname}"

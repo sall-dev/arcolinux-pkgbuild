@@ -1,27 +1,25 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
 pkgname=arcolinux-faces-git
 _pkgname=arcolinux-faces
-_destname="/usr/share/pixmaps/"
+_destname1="/usr/share/pixmaps/faces/"
 _licensedir="/usr/share/arcolinux/licenses/"
-pkgver=6.7
+pkgver=19.3
 pkgrel=1
 pkgdesc="Faces - Avatars created for arcolinux"
 arch=('any')
 url="https://github.com/arcolinux/arcolinux-faces"
 license=('GPL3')
 makedepends=('git')
-depends=('')
+depends=()
 optdepends=('mugshot')
 provides=("${pkgname}")
 options=(!strip !emptydirs)
 source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")
 sha256sums=('SKIP')
 package() {
-	rm -f "${srcdir}/${_pkgname}/"README.md
-	rm -f "${srcdir}/${_pkgname}/"git-v*
-	rm -f "${srcdir}/${_pkgname}/"setup-git-v*
-	mkdir -p "${pkgdir}${_destname}"
-	mkdir -p "${pkgdir}${_licensedir}${_pkgname}"
-	mv "${srcdir}/${_pkgname}/"LICENSE "${pkgdir}${_licensedir}${_pkgname}/LICENSE"
-	cp -r "${srcdir}/${_pkgname}/"* "${pkgdir}${_destname}"
+	install -dm755 ${pkgdir}${_licensedir}${_pkgname}
+	install -m644  ${srcdir}/${_pkgname}/LICENSE ${pkgdir}${_licensedir}${_pkgname}
+
+	install -dm755 ${pkgdir}${_destname1}
+	install -m644  ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
 }

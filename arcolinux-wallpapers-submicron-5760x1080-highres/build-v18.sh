@@ -26,29 +26,43 @@ mv $search*pkg.tar.xz.sig ../../arcolinux_repo/x86_64/
 
 
 
+echo "Cleaning up"
+echo "###########################################################"
+echo
+
+echo "deleting unnecessary folders"
+echo "###########################################################"
+echo
+
+rm -rf pkg src
+
 echo "deleting unnecessary files"
-find .   -not -name Makefile\
-		 -not -name arcolinux-trusted\
-		 -not -name arcolinux-revoked\
-		 -not -name arcolinux.gpg\
-		 -not -name readme.install\
-		 -not -name 'PKGBUILD'\
-		 -not -name 'MKPKG'\
-		 -not -name 'LICENCE.md'\
-		 -not -name 'install'\
-		 -not -name '*.prf'\
-		 -not -name '*.hook'\
-		 -not -name '*.conf'\
-		 -not -name 'LICENSE'\
-		 -not -name 'build-v*'\
-		 -not -name 'modprobe.d*'\
-		 -not -name '*.install'\
-		 -not -name '*.patch'\
-		 -not -name '*.png'\
-		 -not -name '*.jpg'\
-		 -not -name '*.cfg'\
-		 -not -name '*.desktop'\
-		 -delete
+echo "###########################################################"
+echo
+
+find .  -not -name 'PKGBUILD'\
+        -not -name 'MKPKG'\
+        -not -name 'LICENCE.md'\
+        -not -name 'LICENSE'\
+        -not -name '*arcolinux*'\
+        -not -name '*install*'\
+        -not -name '*.cfg'\
+        -not -name '*.conf'\
+        -not -name '*.desc'\
+        -not -name '*.desktop'\
+        -not -name '*.hook'\
+        -not -name '*.install'\
+        -not -name '*.jpg'\
+        -not -name '*.patch'\
+        -not -name '*.png'\
+        -not -name '*.po'\
+        -not -name '*.prf'\
+        -not -name '*.protocol'\
+        -not -name '*.py'\
+        -not -name '*.service'\
+	      -not -name '*.sh'\
+	      -not -name '*.txt'\
+        -delete
 
 
 echo "################################################################"
