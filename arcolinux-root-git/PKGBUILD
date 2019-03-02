@@ -1,10 +1,9 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
 pkgname=arcolinux-root-git
 _pkgname=arcolinux-root
-_destname="/etc/skel/"
-_backupname="etc/skel/"
+_destname1="/etc/skel/"
 _licensedir="/usr/share/arcolinux/licenses/"
-pkgver=19.1
+pkgver=19.3
 pkgrel=3
 pkgdesc="root configs from arcolinux"
 arch=('any')
@@ -18,16 +17,17 @@ source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")
 sha256sums=('SKIP')
 install='readme.install'
 package() {
-	mkdir -p "${pkgdir}${_licensedir}${_pkgname}"
-	mv "${srcdir}/${_pkgname}/"LICENSE "${pkgdir}${_licensedir}${_pkgname}/LICENSE"
-	mkdir -p "${pkgdir}${_destname}"
-	cp -r "${srcdir}/${_pkgname}/root/".bashrc-latest "${pkgdir}${_destname}"
-	cp -r "${srcdir}/${_pkgname}/root/".conkyrc "${pkgdir}${_destname}"
-	cp -r "${srcdir}/${_pkgname}/root/".dmrc "${pkgdir}${_destname}"
-	cp -r "${srcdir}/${_pkgname}/root/".face "${pkgdir}${_destname}"
-	cp -r "${srcdir}/${_pkgname}/root/".gtkrc-2.0 "${pkgdir}${_destname}"
-	cp -r "${srcdir}/${_pkgname}/root/".xinitrc "${pkgdir}${_destname}"
-	cp -r "${srcdir}/${_pkgname}/root/".Xresources "${pkgdir}${_destname}"
-	cp -r "${srcdir}/${_pkgname}/root/".xsession "${pkgdir}${_destname}"
-	cp -r "${srcdir}/${_pkgname}/root/".xsessionrc "${pkgdir}${_destname}"
+	install -dm755 ${pkgdir}${_licensedir}${_pkgname}
+	install -m644  ${srcdir}/${_pkgname}/LICENSE ${pkgdir}${_licensedir}${_pkgname}
+
+	install -dm755 ${pkgdir}${_destname1}
+	cp -r  ${srcdir}/${_pkgname}${_destname1}.bashrc-latest ${pkgdir}${_destname1}
+	cp -r  ${srcdir}/${_pkgname}${_destname1}.conkyrc ${pkgdir}${_destname1}
+	cp -r  ${srcdir}/${_pkgname}${_destname1}.dmrc ${pkgdir}${_destname1}
+	cp -r  ${srcdir}/${_pkgname}${_destname1}.face ${pkgdir}${_destname1}
+	cp -r  ${srcdir}/${_pkgname}${_destname1}.gtkrc-2.0 ${pkgdir}${_destname1}
+	cp -r  ${srcdir}/${_pkgname}${_destname1}.xinitrc ${pkgdir}${_destname1}
+	cp -r  ${srcdir}/${_pkgname}${_destname1}.Xresources ${pkgdir}${_destname1}
+	cp -r  ${srcdir}/${_pkgname}${_destname1}.xsession ${pkgdir}${_destname1}
+	cp -r  ${srcdir}/${_pkgname}${_destname1}.xsessionrc ${pkgdir}${_destname1}
 }
