@@ -1,10 +1,10 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
 pkgname=arcolinux-bspwm-git
 _pkgname=arcolinux-bspwm
-_destname="/etc/skel/.config/"
+_destname1="/etc/skel/.config/"
 _licensedir="/usr/share/arcolinux/licenses/"
-pkgver=19.2
-pkgrel=5
+pkgver=19.3
+pkgrel=1
 pkgdesc="bspwm config and themes created for arcolinux"
 arch=('any')
 url="https://github.com/arcolinux/arcolinux-bspwm"
@@ -17,8 +17,9 @@ source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")
 sha256sums=('SKIP')
 install='readme.install'
 package() {
-	mkdir -p "${pkgdir}${_destname}"
-	mkdir -p "${pkgdir}${_licensedir}${_pkgname}"
-	mv "${srcdir}/${_pkgname}/"LICENSE "${pkgdir}${_licensedir}${_pkgname}/LICENSE"
-	cp -r "${srcdir}/${_pkgname}"/config/* "${pkgdir}${_destname}"
+	install -dm755 ${pkgdir}${_licensedir}${_pkgname}
+	install -m644  ${srcdir}/${_pkgname}/LICENSE ${pkgdir}${_licensedir}${_pkgname}
+
+	install -dm755 ${pkgdir}${_destname1}
+	cp -r  ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
 }

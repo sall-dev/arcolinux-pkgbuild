@@ -1,10 +1,11 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
 pkgname=arcolinux-xmonad-xmobar-git
 _pkgname=arcolinux-xmonad-xmobar
-_destname="/etc/skel/.xmonad/"
+_destname1="/etc/skel/.xmonad/"
+_destname2="/etc/skel/"
 _licensedir="/usr/share/arcolinux/licenses/"
 pkgver=19.3
-pkgrel=16
+pkgrel=17
 pkgdesc="xmonad config for xmobar"
 arch=('any')
 url="https://github.com/arcolinux/arcolinux-xmonad-xmobar"
@@ -18,8 +19,12 @@ source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")
 sha256sums=('SKIP')
 install='readme.install'
 package() {
-	mkdir -p "${pkgdir}${_destname}"
-	mkdir -p "${pkgdir}${_licensedir}${_pkgname}"
-	mv "${srcdir}/${_pkgname}/"LICENSE "${pkgdir}${_licensedir}${_pkgname}/LICENSE"
-	cp -r "${srcdir}/${_pkgname}"/xmonad/* "${pkgdir}${_destname}"
+	install -dm755 ${pkgdir}${_licensedir}${_pkgname}
+	install -m644  ${srcdir}/${_pkgname}/LICENSE ${pkgdir}${_licensedir}${_pkgname}
+
+	install -dm755 ${pkgdir}${_destname1}
+	cp -r  ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
+
+	install -dm755 ${pkgdir}${_destname2}
+	install -m644  ${srcdir}/${_pkgname}${_destname2}.stalonetrayrc ${pkgdir}${_destname2}
 }

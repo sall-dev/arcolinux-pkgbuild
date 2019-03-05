@@ -3,12 +3,13 @@ pkgname=arcolinuxd-calamares-git
 _pkgname=arcolinuxd-calamares
 _destname="/etc/calamares"
 _licensedir="/usr/share/arcolinuxd/licenses/"
-pkgver=19.2
-pkgrel=1
-pkgdesc="calamares for arcolinuxd"
+pkgver=19.3
+pkgrel=13
+pkgdesc="calamares for ArcoLinuxD"
 arch=('any')
 url="https://github.com/arcolinux/arcolinuxd-calamares"
 license=('GPL3')
+conflicts=('arcolinuxd-calamares-dev-git')
 makedepends=('git')
 depends=()
 provides=("${pkgname}")
@@ -17,9 +18,6 @@ source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")
 sha256sums=('SKIP')
 install='readme.install'
 package() {
-	rm -f "${srcdir}/${_pkgname}/"README.md
-	rm -f "${srcdir}/${_pkgname}/"git-v*
-	rm -f "${srcdir}/${_pkgname}/"setup-git-v*
 	mkdir -p "${pkgdir}${_licensedir}${_pkgname}"
 	mv "${srcdir}/${_pkgname}/"LICENSE "${pkgdir}${_licensedir}${_pkgname}/LICENSE"
 	mkdir -p "${pkgdir}${_destname}"

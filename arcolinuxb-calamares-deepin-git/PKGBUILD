@@ -3,8 +3,8 @@ pkgname=arcolinuxb-calamares-deepin-git
 _pkgname=arcolinuxb-calamares-deepin
 _destname="/etc/calamares"
 _licensedir="/usr/share/arcolinux/licenses/"
-pkgver=19.1
-pkgrel=7
+pkgver=19.3
+pkgrel=15
 pkgdesc="calamares for arcolinux"
 arch=('any')
 url="https://github.com/arcolinux/arcolinuxb-calamares-deepin"
@@ -17,9 +17,6 @@ source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")
 sha256sums=('SKIP')
 install='readme.install'
 package() {
-	rm -f "${srcdir}/${_pkgname}/"README.md
-	rm -f "${srcdir}/${_pkgname}/"git-v*
-	rm -f "${srcdir}/${_pkgname}/"setup-git-v*
 	mkdir -p "${pkgdir}${_licensedir}${_pkgname}"
 	mv "${srcdir}/${_pkgname}/"LICENSE "${pkgdir}${_licensedir}${_pkgname}/LICENSE"
 	mkdir -p "${pkgdir}${_destname}"

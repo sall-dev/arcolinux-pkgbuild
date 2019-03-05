@@ -1,10 +1,10 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
 pkgname=arcolinux-plank-themes-git
 _pkgname=arcolinux-plank-themes
-_destname="/usr/share/plank/themes/"
+_destname1="/usr/share/plank/themes/"
 _licensedir="/usr/share/arcolinux/licenses/"
-pkgver=19.2
-pkgrel=2
+pkgver=19.3
+pkgrel=1
 pkgdesc="Plank themes for arcolinux"
 arch=('any')
 url="https://github.com/arcolinux/arcolinux-Plank-Themes"
@@ -13,13 +13,12 @@ makedepends=('git')
 depends=()
 provides=("${pkgname}")
 options=(!strip !emptydirs)
-source=('arcolinux-plank-themes::git+https://github.com/arcolinux/arcolinux-Plank-Themes.git')
+source=(${_pkgname}::git+https://github.com/arcolinux/arcolinux-Plank-Themes.git)
 sha256sums=('SKIP')
 package() {
-	rm -f "${srcdir}/${_pkgname}/"README.md
-	rm -f "${srcdir}/${_pkgname}/"git-v*
-	mkdir -p "${pkgdir}${_destname}"
-	mkdir -p "${pkgdir}${_licensedir}${_pkgname}"
-	mv "${srcdir}/${_pkgname}/"LICENSE "${pkgdir}${_licensedir}${_pkgname}/LICENSE"
-	cp -r "${srcdir}/${_pkgname}/themes/"* "${pkgdir}${_destname}"
+	install -dm755 ${pkgdir}${_licensedir}${_pkgname}
+	install -m644  ${srcdir}/${_pkgname}/LICENSE ${pkgdir}${_licensedir}${_pkgname}
+
+	install -dm755 ${pkgdir}${_destname1}
+	cp -r  ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
 }

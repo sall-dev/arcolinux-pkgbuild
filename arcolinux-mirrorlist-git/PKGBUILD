@@ -1,9 +1,9 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
 pkgname=arcolinux-mirrorlist-git
 _pkgname=arcolinux-mirrorlist
-_destname="/etc/pacman.d"
+_destname1="/etc/pacman.d/"
 _licensedir="/usr/share/arcolinux/licenses/"
-pkgver=19.1
+pkgver=19.3
 pkgrel=1
 pkgdesc="ArcoLinux mirrorlist for use by pacman"
 arch=('any')
@@ -14,11 +14,12 @@ depends=()
 provides=("${pkgname}")
 options=(!strip !emptydirs)
 source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")
-md5sums=('SKIP')
+sha256sums=('SKIP')
 backup=(etc/pacman.d/arcolinux-mirrorlist)
 package() {
-	mkdir -p "${pkgdir}${_destname}"
-	mkdir -p "${pkgdir}${_licensedir}${_pkgname}"
-	mv "${srcdir}/${_pkgname}/"LICENSE "${pkgdir}${_licensedir}${_pkgname}/LICENSE"
-	install -m644 $srcdir/${_pkgname}/arcolinux-mirrorlist $pkgdir/etc/pacman.d/
+	install -dm755 ${pkgdir}${_licensedir}${_pkgname}
+	install -m644  ${srcdir}/${_pkgname}/LICENSE ${pkgdir}${_licensedir}${_pkgname}
+
+	install -dm755 ${pkgdir}${_destname1}
+	install -m644  ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
 }
