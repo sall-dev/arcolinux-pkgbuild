@@ -1,16 +1,15 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
-pkgname=arcolinux-calamares-git-git
-_pkgname=arcolinux-calamares-git
+pkgname=arcolinuxb-calamares-qtile-git
+_pkgname=arcolinuxb-calamares-qtile
 _destname="/etc/calamares"
 _licensedir="/usr/share/arcolinux/licenses/"
-pkgver=19.4
+pkgver=19.3
 pkgrel=1
-pkgdesc="calamares git for arcolinux"
+pkgdesc="calamares for arcolinux"
 arch=('any')
-url="https://github.com/arcolinux/arcolinux-calamares-git-git"
+url="https://github.com/arcolinux/arcolinuxb-calamares-qtile"
 license=('GPL3')
 makedepends=('git')
-conflicts=('arcolinux-calamares-git' 'arcolinux-calamares-dev-git')
 depends=()
 provides=("${pkgname}")
 options=(!strip !emptydirs)
