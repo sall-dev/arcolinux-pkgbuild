@@ -3,8 +3,8 @@ pkgname=arcolinux-xmonad-polybar-git
 _pkgname=arcolinux-xmonad-polybar
 _destname="/etc/skel/.xmonad/"
 _licensedir="/usr/share/arcolinux/licenses/"
-pkgver=19.3
-pkgrel=5
+pkgver=19.4
+pkgrel=3
 pkgdesc="xmonad config for polybar"
 arch=('any')
 url="https://github.com/arcolinux/arcolinux-xmonad-polybar"
@@ -13,13 +13,15 @@ makedepends=('git')
 conflicts=('arcolinux-xmonad-git' 'arcolinux-xmonad-xmobar-git')
 depends=('bash')
 provides=("${pkgname}")
+replaces=('arcolinux-xmonad-git')
 options=(!strip !emptydirs)
 source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")
 sha256sums=('SKIP')
 install='readme.install'
 package() {
-	mkdir -p "${pkgdir}${_destname}"
-	mkdir -p "${pkgdir}${_licensedir}${_pkgname}"
-	mv "${srcdir}/${_pkgname}/"LICENSE "${pkgdir}${_licensedir}${_pkgname}/LICENSE"
-	cp -r "${srcdir}/${_pkgname}"/xmonad/* "${pkgdir}${_destname}"
+	install -dm755 ${pkgdir}${_licensedir}${_pkgname}
+	install -m644  ${srcdir}/${_pkgname}/LICENSE ${pkgdir}${_licensedir}${_pkgname}
+
+	install -dm755 ${pkgdir}${_destname}
+	cp -r  ${srcdir}/${_pkgname}${_destname}* ${pkgdir}${_destname}
 }
