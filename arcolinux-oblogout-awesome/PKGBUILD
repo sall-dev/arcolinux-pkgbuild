@@ -2,6 +2,7 @@
 # Maintainer: Alexander F Rødseth <xyproto@archlinux.org>
 # Contributor: XaBz <xabz.2k5@gmail.com>
 # Edited by Erik Dubois for ArcoLinux
+# Original version 0.2-19
 
 pkgname=arcolinux-oblogout-awesome
 _pkgname=oblogout

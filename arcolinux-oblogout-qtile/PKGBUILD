@@ -4,7 +4,7 @@
 # Edited by Erik Dubois for ArcoLinux
 # Original version 0.2-19
 
-pkgname=arcolinux-oblogout
+pkgname=arcolinux-oblogout-qtile
 _pkgname=oblogout
 pkgver=0.2
 pkgrel=19
@@ -22,7 +22,7 @@ source=("https://launchpad.net/oblogout/$pkgver/$pkgver.0/+download/$_pkgname-$p
         'ru.po')
 sha256sums=('f80003b85e9f4f1c588675453ea03f40a86fc50546d509ceb69706eb045782a9'
             'cea52a14df0ef924fcdd63b2e82c14b94cc2a7753994c176621ace9502bd9109'
-            '2bda8ea9bd9e70835cb4ba565bf2853be0ee4bdbd1652a554486cfb1c5ec6f46'
+            '3f582211f84ab123c475480265fe3104935f3d641d431b91f99477de89df1f4a'
             'aa8504055ec1e0661c3588cde85aad3267ffa7a42414c106e6ce8bff71f9d883')
 prepare() {
   cd "$_pkgname"
