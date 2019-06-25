@@ -22,7 +22,7 @@ source=("https://launchpad.net/oblogout/$pkgver/$pkgver.0/+download/$_pkgname-$p
         'ru.po')
 sha256sums=('f80003b85e9f4f1c588675453ea03f40a86fc50546d509ceb69706eb045782a9'
             'cea52a14df0ef924fcdd63b2e82c14b94cc2a7753994c176621ace9502bd9109'
-            '2ee4642ffa6b2416632a52506c287a3fb684cd0293228b85a8a28a020010fdd6'
+            'fc3cc6d9e0d1bc7158f892338d8305c50096888584bd29a3381a0a667105fce4'
             'aa8504055ec1e0661c3588cde85aad3267ffa7a42414c106e6ce8bff71f9d883')
 prepare() {
   cd "$_pkgname"
