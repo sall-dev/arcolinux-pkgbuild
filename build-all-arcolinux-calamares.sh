@@ -1,4 +1,7 @@
 #!/bin/bash
+echo "First change the pkgbuild manually"
+echo "Press any key to continue"
+read key
 
 for OUTPUT in $(echo arcolinux-calamares*/)
 do

@@ -1,14 +1,14 @@
 #!/bin/bash
 
 count=0
-
+echo "We cut the version 19.7.1 in two parts"
 echo "Give old package version like 19.7"
 read oldpkgversion
-echo "Give new packageversion"
-read newpkgversion
-
 echo "Give old package release like 1"
 read oldpkgrelease
+
+echo "Give new packageversion"
+read newpkgversion
 echo "Give new package release"
 read newpkgrelease
 
