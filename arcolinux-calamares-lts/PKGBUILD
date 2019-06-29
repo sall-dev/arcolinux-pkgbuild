@@ -1,16 +1,16 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
-pkgname=arcolinuxd-calamares-dev-git
-_pkgname=arcolinuxd-calamares-dev
+pkgname=arcolinux-calamares-lts-git
+_pkgname=arcolinux-calamares-lts
 _destname="/etc/calamares"
-_licensedir="/usr/share/arcolinuxd/licenses/"
+_licensedir="/usr/share/arcolinux/licenses/"
 pkgver=19.7
 pkgrel=12
-pkgdesc="calamares dev for ArcoLinuxD"
+pkgdesc="calamares for arcolinux with linux-lts"
 arch=('any')
-url="https://github.com/arcolinux/arcolinuxd-calamares-dev"
+url="https://github.com/arcolinux/arcolinux-calamares-lts-git"
 license=('GPL3')
-conflicts=('arcolinuxd-calamares-git' 'arcolinuxd-calamares-lts-git')
 makedepends=('git')
+conflicts=('arcolinux-calamares-git-git' 'arcolinux-calamares-dev-git')
 depends=()
 provides=("${pkgname}")
 options=(!strip !emptydirs)
