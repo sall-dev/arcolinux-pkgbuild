@@ -37,7 +37,7 @@ echo "You typed " $pkgrel
 echo "#################################################"
 echo
 echo "#################################################"
-echo "Continue ? " (y/Y)
+echo "Continue ?  (y/Y)"
 echo "#################################################"
 read response
 
@@ -66,5 +66,4 @@ if [[ "$response" == [yY] ]]; then
     else
     	echo "################################################################"
       echo "Nothing has been changed.";
-		notify-send -u normal "Nothing has changed!"
 fi
