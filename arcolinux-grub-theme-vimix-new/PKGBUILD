@@ -1,0 +1,40 @@
+# Maintainer: levinit <levinit@outlook.com>
+# Maintainer: Dct Mei <dctxmei@gmail.com>
+# Editor : Erik Dubois <erik.dubois@gmail.com>
+
+pkgname=arcolinux-grub-theme-vimix-git
+_pkgname=arcolinux-grub-theme-vimix
+_licensedir="/usr/share/arcolinux/licenses/"
+pkgver=20190628
+pkgrel=1
+pkgdesc="vimix grub theme"
+arch=(any)
+url="https://github.com/vinceliuice/grub2-themes"
+license=('GPL3')
+depends=(grub)
+optdepends=('grub-customizer')
+makedepends=('git')
+install=${pkgname}.install
+source=("$pkgname::git+https://github.com/vinceliuice/grub2-themes.git")
+md5sums=('SKIP')
+
+package() {
+	cp ../backgrounds/arcolinux.jpeg $srcdir/$pkgname/backgrounds/background-vimix.jpg
+	cp ../backgrounds/* $srcdir/$pkgname/backgrounds/
+	cp $srcdir/$pkgname/assets/assets-white/icons/arcolinux.png $srcdir/$pkgname/assets/assets-white/icons/gnu-linux.png
+	sed -i 's/width = 45%/width = 70%/g' $srcdir/$pkgname/common/theme.txt
+    sed -i 's/left = 30%/left = 15%/g' $srcdir/$pkgname/common/theme.txt
+    sed -i 's/top = 30%/top = 20%/g' $srcdir/$pkgname/common/theme.txt
+    sed -i 's/height = 60%/height = 70%/g' $srcdir/$pkgname/common/theme.txt 
+    cd $srcdir/$pkgname
+    install -d "$pkgdir/boot/grub/themes/Vimix"
+    install -d "$pkgdir/boot/grub/themes/Vimix/icons"
+    install -Dm 755 ../../backgrounds/* "$pkgdir/boot/grub/themes/Vimix/"
+    install -Dm 755 common/* "$pkgdir/boot/grub/themes/Vimix"
+    install -Dm 755 "backgrounds/background-vimix.jpg" "$pkgdir/boot/grub/themes/Vimix/background.jpg"
+    install -Dm 755 assets/assets-white/icons/* "$pkgdir/boot/grub/themes/Vimix/icons"
+    install -Dm 755 assets/assets-white/select/*.png "$pkgdir/boot/grub/themes/Vimix"
+    install -dm755 ${pkgdir}${_licensedir}${_pkgname}
+    install -m644  ${srcdir}/${pkgname}/LICENSE ${pkgdir}${_licensedir}${_pkgname}
+    install -Dm 755 common/* "$pkgdir/boot/grub/themes/Vimix"
+}
