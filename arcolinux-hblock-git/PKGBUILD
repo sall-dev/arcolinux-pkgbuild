@@ -1,0 +1,46 @@
+# Maintainer: Erik Dubois <erik.dubois@gmail.com>
+pkgname=arcolinux-hblock-git
+_pkgname=hblock
+_destname="/usr/local/bin/"
+_destnamesystem="/etc/systemd/system/"
+_destnamelists="/etc/hblock.d"
+_licensedir="/usr/share/licenses/"
+pkgver=2.0.9
+pkgrel=1
+pkgdesc="hblock from Héctor Molinero Fernández"
+arch=('any')
+url="https://github.com/hectorm/hblock"
+license=('MIT')
+replaces=('hblock-git')
+backup=('etc/hosts')
+makedepends=('git')
+depends=()
+provides=("${pkgname}")
+conflicts=()
+options=(!strip !emptydirs)
+source=(${_pkgname}::"https://github.com/hectorm/hblock/archive/v${pkgver}.tar.gz")
+sha256sums=('SKIP')
+install='readme.install'
+build() {
+	cd "$_pkgname-$pkgver"
+	make
+}
+
+package() {
+	install -d -m755 "${pkgdir}${_licensedir}${_pkgname}"
+	install -d -m755 "${pkgdir}${_destname}"
+	install -m644 "${srcdir}/${_pkgname}-${pkgver}/"LICENSE.md "${pkgdir}${_licensedir}${_pkgname}/LICENSE"
+	install -m755 "${srcdir}/${_pkgname}-${pkgver}/"hblock "${pkgdir}${_destname}hblock"
+	chown root:root ${pkgdir}${_destname}hblock
+	install -d -m755 "${pkgdir}${_destnamesystem}"
+	install -m644 "${srcdir}/${_pkgname}-${pkgver}/"resources/systemd/hblock.{service,timer} "${pkgdir}${_destnamesystem}"
+	#install -d -m755 "${pkgdir}"/usr/lib/systemd/system/
+	#install -m644 "${srcdir}/${_pkgname}/"resources/systemd/hblock.timer "${pkgdir}"/usr/lib/systemd/system/hblock.timer
+	install -d -m755 "${pkgdir}"/etc/systemd/system/timers.target.wants
+	cd ${pkgdir}/etc/systemd/system/timers.target.wants
+	ln -s ../$_pkgname.timer ${pkgdir}/etc/systemd/system/timers.target.wants/$_pkgname.timer
+	install -d -m755 "${pkgdir}${_destnamelists}"
+	touch "${pkgdir}${_destnamelists}"/whitelist.list
+	#echo "analytics.google.com" | tee "${pkgdir}${_destnamelists}"/whitelist.list
+	touch "${pkgdir}${_destnamelists}"/blacklist.list
+}

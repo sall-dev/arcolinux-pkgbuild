@@ -1,13 +1,13 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
-pkgname=arcolinux-config-gnome-git
-_pkgname=arcolinux-config-gnome
+pkgname=arcolinux-config-lxqt-git
+_pkgname=arcolinux-config-lxqt
 _destname1="/etc/skel/.config/"
 _licensedir="/usr/share/arcolinux/licenses/"
 pkgver=19.7
-pkgrel=7
-pkgdesc="Configuration files for ArcoLinuxB Gnome"
+pkgrel=10
+pkgdesc="Configuration files for ArcoLinuxB Lxqt"
 arch=('any')
-url="https://github.com/arcolinux/arcolinux-config-gnome"
+url="https://github.com/arcolinux/arcolinux-config-lxqt"
 license=('GPL3')
 makedepends=('git')
 depends=()

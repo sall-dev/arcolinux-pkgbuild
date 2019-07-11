@@ -1,13 +1,13 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
-pkgname=arcolinux-config-gnome-git
-_pkgname=arcolinux-config-gnome
-_destname1="/etc/skel/.config/"
+pkgname=arcolinux-lxqt-applications-add-git
+_pkgname=arcolinux-lxqt-applications-add
+_destname1="/etc/skel/.local/share/applications/"
 _licensedir="/usr/share/arcolinux/licenses/"
 pkgver=19.7
-pkgrel=7
-pkgdesc="Configuration files for ArcoLinuxB Gnome"
+pkgrel=2
+pkgdesc="Show or not show applications in Lxqt"
 arch=('any')
-url="https://github.com/arcolinux/arcolinux-config-gnome"
+url="https://github.com/arcolinux/arcolinux-lxqt-applications-add"
 license=('GPL3')
 makedepends=('git')
 depends=()
@@ -21,5 +21,5 @@ package() {
 	install -m644  ${srcdir}/${_pkgname}/LICENSE ${pkgdir}${_licensedir}${_pkgname}
 
 	install -dm755 ${pkgdir}${_destname1}
-	cp -r  ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
+	install -m644  ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
 }
