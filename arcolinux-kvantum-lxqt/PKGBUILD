@@ -1,13 +1,13 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
-pkgname=arcolinux-lxqt-applications-add-git
-_pkgname=arcolinux-lxqt-applications-add
-_destname1="/etc/skel/.local/share/applications/"
+pkgname=arcolinux-kvantum-lxqt-git
+_pkgname=arcolinux-kvantum-lxqt
+_destname1="/etc/skel/.config/"
 _licensedir="/usr/share/arcolinux/licenses/"
-pkgver=19.7
-pkgrel=4
-pkgdesc="Show or not show applications in Lxqt"
+pkgver=19.9
+pkgrel=2
+pkgdesc="configuration files for ArcoLinux"
 arch=('any')
-url="https://github.com/arcolinux/arcolinux-lxqt-applications-add"
+url="https://github.com/arcolinux/arcolinux-kvantum-lxqt"
 license=('GPL3')
 makedepends=('git')
 depends=()
@@ -21,5 +21,5 @@ package() {
 	install -m644  ${srcdir}/${_pkgname}/LICENSE ${pkgdir}${_licensedir}${_pkgname}
 
 	install -dm755 ${pkgdir}${_destname1}
-	install -m644  ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
+	cp -r  ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
 }

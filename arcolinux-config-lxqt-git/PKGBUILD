@@ -2,9 +2,10 @@
 pkgname=arcolinux-config-lxqt-git
 _pkgname=arcolinux-config-lxqt
 _destname1="/etc/skel/.config/"
+_destname2="/etc/skel/"
 _licensedir="/usr/share/arcolinux/licenses/"
 pkgver=19.7
-pkgrel=10
+pkgrel=22
 pkgdesc="Configuration files for ArcoLinuxB Lxqt"
 arch=('any')
 url="https://github.com/arcolinux/arcolinux-config-lxqt"
@@ -22,4 +23,7 @@ package() {
 
 	install -dm755 ${pkgdir}${_destname1}
 	cp -r  ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
+
+	install -dm755 ${pkgdir}${_destname2}
+	cp -r  ${srcdir}/${_pkgname}${_destname2}.xscreensaver ${pkgdir}${_destname2}	
 }
