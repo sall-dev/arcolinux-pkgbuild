@@ -1,16 +1,16 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
-pkgname=arcolinux-polybar-git
-_pkgname=arcolinux-polybar
-_destname1="/etc/skel/.config/polybar/"
+pkgname=arcolinux-herbstluftwm-git
+_pkgname=arcolinux-herbstluftwm
+_destname1="/etc/skel/.config/"
 _licensedir="/usr/share/arcolinux/licenses/"
 pkgver=19.9
-pkgrel=2
-pkgdesc="polybar config for arcolinux"
+pkgrel=13
+pkgdesc="herbstluftwm config and themes created for arcolinux"
 arch=('any')
-url="https://github.com/arcolinux/arcolinux-polybar"
+url="https://github.com/arcolinux/arcolinux-herbstluftwm"
 license=('GPL3')
 makedepends=('git')
-depends=('bash' 'python')
+depends=('bash')
 provides=("${pkgname}")
 options=(!strip !emptydirs)
 source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")

@@ -1,13 +1,13 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
-pkgname=arcolinuxb-calamares-deepin-lts-git
-_pkgname=arcolinuxb-calamares-deepin-lts
+pkgname=arcolinuxb-calamares-herbstluftwm-lts-git
+_pkgname=arcolinuxb-calamares-herbstluftwm-lts
 _destname="/etc/calamares"
 _licensedir="/usr/share/arcolinux/licenses/"
 pkgver=19.09
-pkgrel=8
+pkgrel=2
 pkgdesc="calamares for arcolinux"
 arch=('any')
-url="https://github.com/arcolinux/arcolinuxb-calamares-deepin"
+url="https://github.com/arcolinux/arcolinuxb-calamares-herbstluftwm-lts"
 license=('GPL3')
 makedepends=('git')
 depends=()
