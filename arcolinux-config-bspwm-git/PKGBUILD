@@ -1,14 +1,13 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
-pkgname=arcolinux-config-xmobar-git
-_pkgname=arcolinux-config-xmobar
-_destname1="/etc/skel/"
-_destname2="/usr/local/bin/"
+pkgname=arcolinux-config-bspwm-git
+_pkgname=arcolinux-config-bspwm
+_destname1="/etc/skel/.config/"
 _licensedir="/usr/share/arcolinux/licenses/"
-pkgver=19.4
-pkgrel=2
-pkgdesc="Configuration files for ArcoLinux xmobar"
+pkgver=19.12
+pkgrel=1
+pkgdesc="Configuration files for ArcoLinuxB bspwm"
 arch=('any')
-url="https://github.com/arcolinux/arcolinux-config-xmobar"
+url="https://github.com/arcolinux/arcolinux-config-bspwm"
 license=('GPL3')
 makedepends=('git')
 depends=()
@@ -22,8 +21,5 @@ package() {
 	install -m644  ${srcdir}/${_pkgname}/LICENSE ${pkgdir}${_licensedir}${_pkgname}
 
 	install -dm755 ${pkgdir}${_destname1}
-	cp -r  ${srcdir}/${_pkgname}${_destname1}.xmobarrc ${pkgdir}${_destname1}
-
-	install -dm755 ${pkgdir}${_destname2}
-	cp -r  ${srcdir}/${_pkgname}${_destname2}* ${pkgdir}${_destname2}
+	cp -r  ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
 }

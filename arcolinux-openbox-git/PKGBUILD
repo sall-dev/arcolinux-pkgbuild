@@ -1,0 +1,29 @@
+# Maintainer: Erik Dubois <erik.dubois@gmail.com>
+pkgname=arcolinux-openbox-git
+_pkgname=arcolinux-openbox
+_destname="/etc/skel/.config/openbox/"
+_destname1="/etc/skel/.config/"
+_licensedir="/usr/share/arcolinux/licenses/"
+pkgver=19.11
+pkgrel=2
+pkgdesc="Openbox configs from arcolinux"
+arch=('any')
+url="https://github.com/arcolinux/arcolinux-openbox"
+license=('GPL3')
+makedepends=('git')
+depends=('bash')
+replaces=('arcolinux-openbox-configs-git')
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")
+sha256sums=('SKIP')
+install='readme.install'
+package() {
+	mkdir -p "${pkgdir}${_licensedir}${_pkgname}"
+	mv "${srcdir}/${_pkgname}/"LICENSE "${pkgdir}${_licensedir}${_pkgname}/LICENSE"
+	mkdir -p "${pkgdir}${_destname}"
+	cp -r "${srcdir}/${_pkgname}/openbox/"* "${pkgdir}${_destname}"
+	mkdir -p "${pkgdir}${_destname1}"
+	cp -r "${srcdir}/${_pkgname}/compton/"compton.conf "${pkgdir}${_destname1}"
+	cp -r "${srcdir}/${_pkgname}/compton/"compton.conf.github "${pkgdir}${_destname1}"
+}
