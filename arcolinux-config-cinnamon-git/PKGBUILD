@@ -2,9 +2,8 @@
 pkgname=arcolinux-config-cinnamon-git
 _pkgname=arcolinux-config-cinnamon
 _destname1="/etc/skel/.config/"
-_destname2="/etc/skel/.cinnamon/"
 _licensedir="/usr/share/arcolinux/licenses/"
-pkgver=19.7
+pkgver=19.12
 pkgrel=1
 pkgdesc="Configuration files for ArcoLinuxB Cinnamon"
 arch=('any')
@@ -23,7 +22,4 @@ package() {
 
 	install -dm755 ${pkgdir}${_destname1}
 	cp -r  ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
-
-	install -dm755 ${pkgdir}${_destname2}
-	cp -r  ${srcdir}/${_pkgname}${_destname2}* ${pkgdir}${_destname2}
 }

@@ -1,18 +1,16 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
-pkgname=arcolinux-xmonad-xmobar-git
-_pkgname=arcolinux-xmonad-xmobar
-_destname1="/etc/skel/.xmonad/"
-_destname2="/etc/skel/"
+pkgname=arcolinux-mate-git
+_pkgname=arcolinux-mate
+_destname1="/etc/skel/.config/"
 _licensedir="/usr/share/arcolinux/licenses/"
-pkgver=19.7
-pkgrel=2
-pkgdesc="xmonad config for xmobar"
+pkgver=19.12
+pkgrel=1
+pkgdesc="ArcoLinuxB Mate Desktop Settings"
 arch=('any')
-url="https://github.com/arcolinux/arcolinux-xmonad-xmobar"
+url="https://github.com/arcolinux/arcolinux-mate"
 license=('GPL3')
 makedepends=('git')
-conflicts=('arcolinux-xmonad-git' 'arcolinux-xmonad-polybar-git')
-depends=('bash' 'arcolinux-xmobar-git')
+depends=()
 provides=("${pkgname}")
 options=(!strip !emptydirs)
 source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")
@@ -24,7 +22,4 @@ package() {
 
 	install -dm755 ${pkgdir}${_destname1}
 	cp -r  ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
-
-	install -dm755 ${pkgdir}${_destname2}
-	install -m644  ${srcdir}/${_pkgname}${_destname2}.stalonetrayrc ${pkgdir}${_destname2}
 }

@@ -3,10 +3,9 @@ pkgname=arcolinux-config-plasma-nemesis-git
 _pkgname=arcolinux-config-plasma-nemesis
 _destname1="/etc/skel/.config/"
 _destname2="/etc/skel/"
-_destname3="/etc/skel/.local/share/"
 _licensedir="/usr/share/arcolinux/licenses/"
-pkgver=19.11
-pkgrel=10
+pkgver=19.12
+pkgrel=2
 pkgdesc="Configuration files for ArcoLinuxB Plasma"
 arch=('any')
 url="https://github.com/arcolinux/arcolinux-config-plasma"
@@ -31,7 +30,4 @@ package() {
 	cp -r  ${srcdir}/${_pkgname}${_destname2}.face ${pkgdir}${_destname2}
 	cp -r  ${srcdir}/${_pkgname}${_destname2}.face.icon ${pkgdir}${_destname2}
 	cp -r  ${srcdir}/${_pkgname}${_destname2}.Xresources ${pkgdir}${_destname2}
-
-	install -dm755 ${pkgdir}${_destname3}
-	cp -r  ${srcdir}/${_pkgname}${_destname3}* ${pkgdir}${_destname3}
 }
