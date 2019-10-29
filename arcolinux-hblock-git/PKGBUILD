@@ -2,11 +2,12 @@
 pkgname=arcolinux-hblock-git
 _pkgname=hblock
 _destname="/usr/local/bin/"
+_destname_desktop="/usr/share/applications/"
 _destnamesystem="/etc/systemd/system/"
 _destnamelists="/etc/hblock.d"
 _licensedir="/usr/share/licenses/"
 pkgver=2.1.2
-pkgrel=1
+pkgrel=3
 pkgdesc="An adblocker that creates a hosts file from automatically downloaded blacklists from Héctor Molinero Fernández"
 arch=('any')
 url="https://github.com/hectorm/hblock"
@@ -18,8 +19,9 @@ depends=()
 provides=("${pkgname}")
 conflicts=()
 options=(!strip !emptydirs)
-source=(${_pkgname}::"https://github.com/hectorm/hblock/archive/v${pkgver}.tar.gz")
-sha256sums=('SKIP')
+source=(${_pkgname}::"https://github.com/hectorm/hblock/archive/v${pkgver}.tar.gz" "advert-block.desktop")
+sha256sums=('f564bdc7247a3d3044d8da2e165a3a16ebfa1bb72965aa9a7a349d205d07cb99'
+            'a34fad6e3b9eb25ae46b7f4abd9a39b93ce6293d1bc6ceeecaf484fce0dbe19a')
 install='readme.install'
 build() {
 	cd "$_pkgname-$pkgver"
@@ -41,6 +43,8 @@ package() {
 	ln -s ../$_pkgname.timer ${pkgdir}/etc/systemd/system/timers.target.wants/$_pkgname.timer
 	install -d -m755 "${pkgdir}${_destnamelists}"
 	touch "${pkgdir}${_destnamelists}"/whitelist.list
-	#echo "analytics.google.com" | tee "${pkgdir}${_destnamelists}"/whitelist.list
+	echo "analytics.google.com" | tee "${pkgdir}${_destnamelists}"/whitelist.list
 	touch "${pkgdir}${_destnamelists}"/blacklist.list
+	install -d -m755 "${pkgdir}${_destname_desktop}"
+	install -m644 "${srcdir}/advert-block.desktop" "$pkgdir/usr/share/applications/"
 }
