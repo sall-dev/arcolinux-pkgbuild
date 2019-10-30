@@ -15,7 +15,8 @@ echo "2. makepkg"
 echo "1. chroot"
 echo "0. Do nothing"
 echo "Type the number..."
-read CHOICE
+#read CHOICE
+CHOICE=1
 
 case $CHOICE in
 
@@ -91,6 +92,7 @@ find .   -not -name Makefile\
 		 -not -name '*.jpg'\
 		 -not -name '*.cfg'\
 		 -not -name '*.desktop'\
+     -not -name 'arco*'\
 		 -delete
 
 
