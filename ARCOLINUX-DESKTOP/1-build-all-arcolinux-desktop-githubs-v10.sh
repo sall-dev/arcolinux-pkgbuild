@@ -17,7 +17,7 @@ echo "Scans the existing folders"
 echo "Be sure you have the highest number for all of them"
 echo
 echo "#################################################"
-echo "Give the pkgversion number like 19.08"
+echo "Give the pkgversion number like 19.12"
 echo "#################################################"
 
 read pkgver
@@ -27,7 +27,7 @@ echo "You typed " $pkgver
 echo "#################################################"
 echo
 echo "#################################################"
-echo "Give the pkgrelease number like 8"
+echo "Give the pkgrelease number like 10"
 echo "#################################################"
 
 read pkgrel
@@ -44,7 +44,8 @@ read response
 #arcolinux-dwm-git \
 #arcolinux-enlightenment-git \
 
-array_desktops="arcolinux-awesome-git \
+array_desktops="
+arcolinux-awesome-git \
 arcolinux-bspwm-git \
 arcolinux-budgie-git \
 arcolinux-cinnamon-git \
