@@ -15,6 +15,11 @@ url='https://launchpad.net/oblogout'
 license=('GPL2')
 depends=('pygtk' 'python2-pillow' 'python2-dbus')
 makedepends=('python2-distutils-extra')
+replaces=('arcolinux-oblogout-awesome'
+          'arcolinux-oblogout-bspwm'
+          'arcolinux-oblogout-herbstluftwm'
+          'arcolinux-oblogout-qtile'
+          'arcolinux-oblogout-xmonad')
 backup=('etc/oblogout.conf')
 conflicts=("oblogout")
 source=("https://launchpad.net/oblogout/$pkgver/$pkgver.0/+download/$_pkgname-$pkgver.tar.bz2"
