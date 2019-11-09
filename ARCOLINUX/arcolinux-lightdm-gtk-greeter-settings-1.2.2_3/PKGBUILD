@@ -14,6 +14,7 @@ url='https://launchpad.net/lightdm-gtk-greeter-settings'
 license=('GPL3')
 depends=('gtk-update-icon-cache' 'python-gobject')
 makedepends=('python-distutils-extra')
+replaces=('lightdm-gtk-greeter-settings')
 source=("https://launchpad.net/lightdm-gtk-greeter-settings/${pkgver%.*}/${pkgver}/+download/lightdm-gtk-greeter-settings-${pkgver}.tar.gz")
 sha256sums=('4364d8b25b23d2ef4856d19724fd6c67de9a2d3c1b3833f7a5441145fd39dcb7')
 

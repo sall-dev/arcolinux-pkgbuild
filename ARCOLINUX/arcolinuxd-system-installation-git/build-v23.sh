@@ -6,7 +6,7 @@ destination2="/home/erik/ARCOLINUX-REPO/arcolinux_repo_3party/x86_64/"
 destination3="/home/erik/ARCOLINUX-REPO/arcolinux_repo_iso/x86_64/"
 destination4="/home/erik/ARCOLINUX-REPO/arcolinux_repo_testing/x86_64/"
 
-destiny=$destination1
+destiny=$destination3
 
 # 2. makepkg"
 # 1. chroot"

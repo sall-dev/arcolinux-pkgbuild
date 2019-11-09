@@ -7,12 +7,13 @@ _destname2="/etc/modprobe.d"
 _destname4="/etc/X11/xorg.conf.d"
 _destname5="/usr/share/applications"
 _destname6="/usr/share/icons/hicolor/256x256/apps"
-_destname7="/usr/bin"
+_destname7="/usr/local/bin"
 _destname8="/etc/systemd/system/"
 _destname9="/etc/samba"
+_destname10="/etc/pacman.d/hooks/"
 _licensedir="/usr/share/arcolinux/licenses/"
-pkgver=19.7
-pkgrel=2
+pkgver=19.12
+pkgrel=8
 pkgdesc="Configuration files for ArcoLinux"
 arch=('any')
 url="https://github.com/arcolinux/arcolinux-system-config"
@@ -43,7 +44,7 @@ package() {
   install -m644 "$srcdir/$pkgname/$_destname5/"* "$pkgdir$_destname5"
 
   install -dm755 "$pkgdir$_destname6"
-  install -m644 "$srcdir/$pkgname/$_destname6/"* "$pkgdir$_destname6"  
+  install -m644 "$srcdir/$pkgname/$_destname6/"* "$pkgdir$_destname6"
 
   install -dm755 "$pkgdir$_destname7"
   install -m755 "$srcdir/$pkgname/$_destname7/"* "$pkgdir$_destname7"
@@ -53,4 +54,8 @@ package() {
 
   install -dm755 "$pkgdir$_destname9"
   install -m644 "$srcdir/$pkgname/$_destname9/"* "$pkgdir$_destname9"
+
+  install -dm755 "$pkgdir$_destname10"
+  install -m644 "$srcdir/$pkgname/$_destname10/"* "$pkgdir$_destname10"
+
 }
