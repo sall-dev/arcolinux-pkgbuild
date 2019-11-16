@@ -45,10 +45,10 @@ if [[ "$response" == [yY] ]]; then
 
 		count=0
 
-		for name in $(ls -d arcod-calamares*/); do
+		for name in $(ls -d arco*/); do
 			count=$[count+1]
 			cd $name
-			tput setaf 1;echo "Github "$count;tput sgr0;
+			tput setaf 1;echo $name;echo "Github "$count;tput sgr0;
 			sed -i "s/\(^pkgver=\).*/\1$pkgver/" PKGBUILD
 			sed -i "s/\(^pkgrel=\).*/\1$pkgrel/" PKGBUILD
 

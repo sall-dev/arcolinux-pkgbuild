@@ -44,7 +44,7 @@ case $desktop in
       ;;
     * )
       echo "#################################"
-      echo "You are not supposed to run this"
+      echo "error"
       echo "#################################"
       ;;
 esac

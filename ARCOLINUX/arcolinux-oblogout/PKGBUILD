@@ -29,7 +29,7 @@ source=("https://launchpad.net/oblogout/$pkgver/$pkgver.0/+download/$_pkgname-$p
         'arco-oblogout')
 sha256sums=('f80003b85e9f4f1c588675453ea03f40a86fc50546d509ceb69706eb045782a9'
             'cea52a14df0ef924fcdd63b2e82c14b94cc2a7753994c176621ace9502bd9109'
-            '953b77929fc91229fd7f819c3626424471d7195bd07e00015ecb1730b48c7165'
+            '5f199bae60f4bc3d25f86fbb27ae547ac8d1fa2cc17fe61f173d2cdaa1ba1e7f'
             'aa8504055ec1e0661c3588cde85aad3267ffa7a42414c106e6ce8bff71f9d883'
             'a21a3f4cdf96cddd41707f1358b51890ed61c89d57d53b7e1e2408dd77c49b46')
 prepare() {
