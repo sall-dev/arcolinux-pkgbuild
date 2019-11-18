@@ -1,0 +1,15 @@
+
+post_install() {
+	systemctl disable reflector.service
+	systemctl disable reflector.timer
+}
+
+post_upgrade() {
+    post_install
+}
+
+
+post_remove() {
+	systemctl disable reflector.service
+	systemctl disable reflector.timer
+}

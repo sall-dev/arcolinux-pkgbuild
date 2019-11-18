@@ -13,7 +13,7 @@ _destname9="/etc/samba"
 _destname10="/etc/pacman.d/hooks/"
 _licensedir="/usr/share/arcolinux/licenses/"
 pkgver=19.12
-pkgrel=8
+pkgrel=17
 pkgdesc="Configuration files for ArcoLinux"
 arch=('any')
 url="https://github.com/arcolinux/arcolinux-system-config"
@@ -24,6 +24,7 @@ provides=("${pkgname}")
 options=( !strip !emptydirs )
 source=(${pkgname}::"git+https://github.com/arcolinux/${_pkgname}")
 sha256sums=('SKIP')
+install='readme.install'
 package() {
   install -dm755 "$pkgdir/$_licensedir/$_pkgname"
   install -m644 "$srcdir/$pkgname/LICENSE" "$pkgdir/$_licensedir/$_pkgname"
