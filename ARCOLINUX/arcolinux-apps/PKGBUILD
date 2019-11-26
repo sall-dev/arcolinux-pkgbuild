@@ -1,13 +1,13 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
-pkgname=arcolinux-applications-git
-_pkgname=arcolinux-applications
+pkgname=arcolinux-apps-git
+_pkgname=arcolinux-apps
 _destname1="/usr/local/bin/"
 _licensedir="/usr/share/arcolinux/licenses/"
 pkgver=19.12
 pkgrel=1
 pkgdesc="Applications for arcolinux"
 arch=('any')
-url="https://github.com/arcolinux/arcolinux-applications"
+url="https://github.com/arcolinux/arcolinux-apps"
 license=('GPL3')
 makedepends=('git')
 depends=()

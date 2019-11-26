@@ -5,7 +5,7 @@ _destname1="/etc/skel/.config/"
 _destname2="/etc/skel/"
 _licensedir="/usr/share/arcolinux/licenses/"
 pkgver=19.12
-pkgrel=15
+pkgrel=19
 pkgdesc="Configuration files for ArcoLinuxB Plasma Nemesis"
 arch=('any')
 url="https://github.com/arcolinux/arcolinux-config-plasma"
@@ -34,7 +34,6 @@ arcolinux-config-xtended-git
 )
 depends=()
 conflicts=('arcolinux-config-plasma-git')
-arcolinux-config-plasma-nemesis-git
 provides=("${pkgname}")
 options=(!strip !emptydirs)
 source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")
@@ -47,8 +46,8 @@ package() {
 	install -dm755 ${pkgdir}${_destname1}
 	cp -r  ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
 
-	install -dm755 ${pkgdir}${_destname2}
-	#cp -r  ${srcdir}/${_pkgname}${_destname2}.bashrc-latest ${pkgdir}${_destname2}
+	#install -dm755 ${pkgdir}${_destname2}
+	#cp -r  ${srcdir}/${_pkgname}${_destname2}.gtkrc-2.0 ${pkgdir}${_destname2}
 	#cp -r  ${srcdir}/${_pkgname}${_destname2}.face ${pkgdir}${_destname2}
 	#cp -r  ${srcdir}/${_pkgname}${_destname2}.face.icon ${pkgdir}${_destname2}
 	#cp -r  ${srcdir}/${_pkgname}${_destname2}.Xresources ${pkgdir}${_destname2}

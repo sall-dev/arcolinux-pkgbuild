@@ -5,7 +5,7 @@ _destname1="/etc/skel/.config/openbox/"
 _destname2="/etc/skel/.config/"
 _licensedir="/usr/share/arcolinux/licenses/"
 pkgver=19.12
-pkgrel=22
+pkgrel=26
 pkgdesc="Openbox configs from arcolinux"
 arch=('any')
 url="Desktop configuration for ArcoLinux Xtended"
@@ -24,5 +24,5 @@ package() {
 	mkdir -p "${pkgdir}${_destname1}"
 	cp -r "${srcdir}/${_pkgname}/${_destname1}/"* "${pkgdir}${_destname1}"
 	mkdir -p "${pkgdir}${_destname2}"
-	cp -r "${srcdir}/${_pkgname}/${_destname2}/"compton.conf "${pkgdir}${_destname2}"
+	cp -r "${srcdir}/${_pkgname}/${_destname2}/"picom.conf "${pkgdir}${_destname2}"
 }
