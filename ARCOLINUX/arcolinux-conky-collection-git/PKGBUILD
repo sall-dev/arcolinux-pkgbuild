@@ -1,18 +1,19 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
-pkgname=arcolinux-plasma-git
-_pkgname=arcolinux-plasma
-_destname1="/etc/skel/.config/"
-_destname2="/etc/skel/.local/share/"
+pkgname=arcolinux-conky-collection-git
+_pkgname=arcolinux-conky-collection
+_destname1="/etc/skel/.config/conky/"
+_destname2="/etc/skel/.config/autostart/"
+_destname3="/usr/share/applications/"
+_destname4="/usr/local/bin/"
 _licensedir="/usr/share/arcolinux/licenses/"
 pkgver=19.12
-pkgrel=38
-pkgdesc="ArcoLinuxB Plasma Desktop Settings"
+pkgrel=4
+pkgdesc="Conky themes from arcolinux"
 arch=('any')
-url="Desktop configuration for ArcoLinux -D -B"
+url="https://github.com/arcolinux/arcolinux-Conky-Collection"
 license=('GPL3')
 makedepends=('git')
-depends=()
-conflicts=('arcolinux-plasma-nemesis-git')
+depends=('python' 'bash')
 provides=("${pkgname}")
 options=(!strip !emptydirs)
 source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")
@@ -27,4 +28,10 @@ package() {
 
 	install -dm755 ${pkgdir}${_destname2}
 	cp -r  ${srcdir}/${_pkgname}${_destname2}* ${pkgdir}${_destname2}
+
+	install -dm755 ${pkgdir}${_destname3}
+	cp -r  ${srcdir}/${_pkgname}${_destname3}* ${pkgdir}${_destname3}
+
+	install -dm755 ${pkgdir}${_destname4}
+	cp -r  ${srcdir}/${_pkgname}${_destname4}* ${pkgdir}${_destname4}		
 }
