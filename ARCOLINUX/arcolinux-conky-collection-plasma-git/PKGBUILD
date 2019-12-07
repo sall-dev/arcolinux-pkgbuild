@@ -1,6 +1,6 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
-pkgname=arcolinux-conky-collection-git
-_pkgname=arcolinux-conky-collection
+pkgname=arcolinux-conky-collection-plasma-git
+_pkgname=arcolinux-conky-collection-plasma
 _destname1="/etc/skel/.config/conky/"
 _destname2="/etc/skel/.config/autostart/"
 _destname3="/usr/share/applications/"
@@ -8,12 +8,13 @@ _destname4="/usr/local/bin/"
 _licensedir="/usr/share/arcolinux/licenses/"
 pkgver=19.12
 pkgrel=6
-pkgdesc="Conky themes from arcolinux"
+pkgdesc="Conky themes from arcolinux for Plasma only"
 arch=('any')
-url="https://github.com/arcolinux/arcolinux-Conky-Collection"
+url="https://github.com/arcolinux/arcolinux-Conky-Collection-Plasma"
 license=('GPL3')
 makedepends=('git')
 depends=('python' 'bash')
+conflicts=('arcolinux-conky-collection-git')
 provides=("${pkgname}")
 options=(!strip !emptydirs)
 source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")
