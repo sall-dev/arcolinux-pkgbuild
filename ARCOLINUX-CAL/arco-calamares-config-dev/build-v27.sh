@@ -37,15 +37,15 @@ case $CHOICE in
 
     echo "Signing the package"
     echo "#############################################################################################"
-    gpg --detach-sign $search*pkg.tar.xz
+    gpg --detach-sign $search*pkg.tar.zst
 
     ;;
 esac
 
 echo "Moving created files to " $destiny
 echo "#############################################################################################"
-mv $search*pkg.tar.xz $destiny
-mv $search*pkg.tar.xz.sig $destiny
+mv $search*pkg.tar.zst $destiny
+mv $search*pkg.tar.zst.sig $destiny
 echo "Cleaning up"
 echo "#############################################################################################"
 echo "deleting unnecessary folders"
@@ -78,6 +78,8 @@ find .   -not -name Makefile\
      -not -name 'module.desc'\
      -not -name '*eula*'\
      -not -name 'get_cdm_version.c'\
+     -not -name '*.po'\
+     -not -name 'arco*'\
 		 -delete
 
 tput setaf 8

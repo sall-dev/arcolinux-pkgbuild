@@ -11,8 +11,8 @@ makepkg --sign
 #### cleaning up
 
 echo "moving created files to repo"
-mv $search*pkg.tar.xz ../../arcolinux_repo/x86_64/
-mv $search*pkg.tar.xz.sig ../../arcolinux_repo/x86_64/
+mv $search*pkg.tar.zst ../../arcolinux_repo/x86_64/
+mv $search*pkg.tar.zst.sig ../../arcolinux_repo/x86_64/
 
 
 

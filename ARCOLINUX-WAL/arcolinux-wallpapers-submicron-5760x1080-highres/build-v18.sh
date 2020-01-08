@@ -10,7 +10,7 @@ arch-nspawn $CHROOT/root pacman -Syu
 makechrootpkg -c -r $CHROOT
 
 echo "signing the package"
-gpg --detach-sign $search*pkg.tar.xz
+gpg --detach-sign $search*pkg.tar.zst
 
 
 # or via makepkg
@@ -21,8 +21,8 @@ gpg --detach-sign $search*pkg.tar.xz
 #### cleaning up
 
 echo "moving created files to repo"
-mv $search*pkg.tar.xz ../../arcolinux_repo/x86_64/
-mv $search*pkg.tar.xz.sig ../../arcolinux_repo/x86_64/
+mv $search*pkg.tar.zst ../../arcolinux_repo/x86_64/
+mv $search*pkg.tar.zst.sig ../../arcolinux_repo/x86_64/
 
 
 

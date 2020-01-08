@@ -37,15 +37,15 @@ case $CHOICE in
 
     echo "Signing the package"
     echo "#############################################################################################"
-    gpg --detach-sign $search*pkg.tar.xz
+    gpg --detach-sign $search*pkg.tar.zst
 
     ;;
 esac
 
 echo "Moving created files to " $destiny
 echo "#############################################################################################"
-mv $search*pkg.tar.xz $destiny
-mv $search*pkg.tar.xz.sig $destiny
+mv $search*pkg.tar.zst $destiny
+mv $search*pkg.tar.zst.sig $destiny
 echo "Cleaning up"
 echo "#############################################################################################"
 echo "deleting unnecessary folders"
