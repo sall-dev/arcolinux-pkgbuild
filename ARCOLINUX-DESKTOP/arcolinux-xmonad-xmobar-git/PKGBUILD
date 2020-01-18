@@ -3,9 +3,10 @@ pkgname=arcolinux-xmonad-xmobar-git
 _pkgname=arcolinux-xmonad-xmobar
 _destname1="/etc/skel/.xmonad/"
 _destname2="/etc/skel/"
+_destname3="/etc/pacman.d/hooks/"
 _licensedir="/usr/share/arcolinux/licenses/"
-pkgver=20.1
-pkgrel=1
+pkgver=20.2
+pkgrel=3
 pkgdesc="Desktop configuration for ArcoLinux -D -B"
 arch=('any')
 url="https://github.com/arcolinux/arcolinux-xmonad-xmobar"
@@ -27,4 +28,7 @@ package() {
 
 	install -dm755 ${pkgdir}${_destname2}
 	install -m644  ${srcdir}/${_pkgname}${_destname2}.stalonetrayrc ${pkgdir}${_destname2}
+
+	install -dm755 ${pkgdir}${_destname3}
+	cp -r  ${srcdir}/${_pkgname}${_destname3}* ${pkgdir}${_destname3}	
 }

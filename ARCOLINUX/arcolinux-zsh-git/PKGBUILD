@@ -1,17 +1,16 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
-pkgname=arcolinux-local-applications-git
-_pkgname=arcolinux-local-applications
-_destname1="/etc/skel/.local/share/applications/"
+pkgname=arcolinux-zsh-git
+_pkgname=arcolinux-zsh
+_destname1="/etc/skel/"
 _licensedir="/usr/share/arcolinux/licenses/"
 pkgver=20.2
-pkgrel=1
-pkgdesc="Show or not show applications in Xfce"
+pkgrel=9
+pkgdesc="zsh configs from arcolinux"
 arch=('any')
-url="https://github.com/arcolinux/arcolinux-local-applications"
+url="https://github.com/arcolinux/arcolinux-zsh"
 license=('GPL3')
 makedepends=('git')
-replaces=('arcolinux-applications-git')
-depends=()
+depends=('bash')
 provides=("${pkgname}")
 options=(!strip !emptydirs)
 source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")
@@ -22,5 +21,5 @@ package() {
 	install -m644  ${srcdir}/${_pkgname}/LICENSE ${pkgdir}${_licensedir}${_pkgname}
 
 	install -dm755 ${pkgdir}${_destname1}
-	install -m644  ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
+	cp -r  ${srcdir}/${_pkgname}${_destname1}.zshrc ${pkgdir}${_destname1}
 }

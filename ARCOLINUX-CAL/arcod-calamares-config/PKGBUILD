@@ -11,6 +11,7 @@ url="https://github.com/arcolinux/${_pkgname}"
 license=('GPL3')
 makedepends=('git')
 depends=()
+conflicts=('arcod-calamares-config-dev-git' 'arcod-calamares-config-next-git'))
 provides=("${pkgname}")
 options=(!strip !emptydirs)
 source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")

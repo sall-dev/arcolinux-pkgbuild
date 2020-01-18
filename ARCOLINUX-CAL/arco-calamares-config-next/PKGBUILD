@@ -1,6 +1,6 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
-pkgname=arco-calamares-config-dev-git
-_pkgname=arco-calamares-config-dev
+pkgname=arco-calamares-config-next-git
+_pkgname=arco-calamares-config-next
 _destname="/etc/calamares"
 _licensedir="/usr/share/arcolinux/licenses/"
 pkgver=20.2
@@ -11,6 +11,7 @@ url="https://github.com/arcolinux/${_pkgname}"
 license=('GPL3')
 makedepends=('git')
 depends=()
+conflicts=('arco-calamares-config-git')
 provides=("${pkgname}")
 options=(!strip !emptydirs)
 source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")

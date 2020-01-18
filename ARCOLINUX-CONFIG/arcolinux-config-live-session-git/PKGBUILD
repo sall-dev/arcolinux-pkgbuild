@@ -1,16 +1,16 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
-pkgname=arcolinux-local-applications-git
-_pkgname=arcolinux-local-applications
-_destname1="/etc/skel/.local/share/applications/"
+pkgname=arcolinux-config-live-session-git
+_pkgname=arcolinux-config-live-session
+_destname1="/etc/skel/.config/"
 _licensedir="/usr/share/arcolinux/licenses/"
 pkgver=20.2
 pkgrel=1
-pkgdesc="Show or not show applications in Xfce"
+pkgdesc="Configuration files for ArcoLinux live session"
 arch=('any')
-url="https://github.com/arcolinux/arcolinux-local-applications"
+url="https://github.com/arcolinux/arcolinux-config-xfce"
 license=('GPL3')
 makedepends=('git')
-replaces=('arcolinux-applications-git')
+conflicts=()
 depends=()
 provides=("${pkgname}")
 options=(!strip !emptydirs)
@@ -22,5 +22,5 @@ package() {
 	install -m644  ${srcdir}/${_pkgname}/LICENSE ${pkgdir}${_licensedir}${_pkgname}
 
 	install -dm755 ${pkgdir}${_destname1}
-	install -m644  ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
+	cp -r  ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
 }

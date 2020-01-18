@@ -7,7 +7,7 @@ _destnamesystem="/etc/systemd/system/"
 _destnamelists="/etc/hblock.d"
 _licensedir="/usr/share/licenses/"
 pkgver=2.1.3
-pkgrel=1
+pkgrel=2
 pkgdesc="An adblocker that creates a hosts file from automatically downloaded blacklists from Héctor Molinero Fernández"
 arch=('any')
 url="https://github.com/hectorm/hblock"
@@ -44,6 +44,7 @@ package() {
 	install -d -m755 "${pkgdir}${_destnamelists}"
 	touch "${pkgdir}${_destnamelists}"/whitelist.list
 	echo "analytics.google.com" | tee "${pkgdir}${_destnamelists}"/whitelist.list
+	echo "marketingplatform.google.com" | tee -a "${pkgdir}${_destnamelists}"/whitelist.list
 	touch "${pkgdir}${_destnamelists}"/blacklist.list
 	install -d -m755 "${pkgdir}${_destname_desktop}"
 	install -m644 "${srcdir}/advert-block.desktop" "$pkgdir/usr/share/applications/"

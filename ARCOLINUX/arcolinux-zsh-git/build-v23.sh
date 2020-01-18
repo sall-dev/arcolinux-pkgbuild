@@ -6,17 +6,14 @@ destination2="/home/erik/ARCOLINUX-REPO/arcolinux_repo_3party/x86_64/"
 destination3="/home/erik/ARCOLINUX-REPO/arcolinux_repo_iso/x86_64/"
 destination4="/home/erik/ARCOLINUX-REPO/arcolinux_repo_testing/x86_64/"
 
-destiny=$destination3
+destiny=$destination1
 
 # 2. makepkg"
 # 1. chroot"
 
-CHOICE=2
+CHOICE=1
 
-search1=$(basename "$PWD")
-search2=arco
-
-search=$search1
+search=arcolinux
 
 tput setaf 2
 echo "#############################################################################################"
@@ -74,12 +71,6 @@ find .   -not -name Makefile\
 		 -not -name '*.jpg'\
 		 -not -name '*.cfg'\
 		 -not -name '*.desktop'\
-     -not -name 'main.py'\
-     -not -name 'module.desc'\
-     -not -name '*eula*'\
-     -not -name 'get_cdm_version.c'\
-     -not -name '*.po'\
-     -not -name 'arco*'\
 		 -delete
 
 tput setaf 8
