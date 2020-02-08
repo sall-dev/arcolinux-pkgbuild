@@ -1,0 +1,19 @@
+# Maintainer: Erik Dubois <erik.dubois@gmail.com>
+pkgname=arcolinux-tweak-tool-dev-git
+_pkgname=arcolinux-tweak-tool-dev
+pkgver=20.3
+pkgrel=3
+pkgdesc="arcolinux tweak tool"
+arch=('any')
+url="https://github.com/arcolinux/${_pkgname}"
+license=('GPL3')
+depends=('python-numpy' 'python-psutil')
+makedepends=('git')
+options=(!strip !emptydirs)
+conflicts=('arcolinux-tweak-tool-git')
+replaces=(hefftor-skel-app-git hefftor-skelap-git)
+source=("${_pkgname}::git+https://github.com/arcolinux/arcolinux-tweak-tool")
+sha256sums=('SKIP')
+package() {
+	cp -r ${srcdir}/${_pkgname}/usr ${pkgdir}
+}

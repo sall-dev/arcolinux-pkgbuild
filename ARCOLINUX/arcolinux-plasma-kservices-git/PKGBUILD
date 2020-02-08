@@ -1,15 +1,16 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
-pkgname=arcob-calamares-config-i3-git
-_pkgname=arcob-calamares-config-i3
-_destname="/etc/calamares"
+pkgname=arcolinux-plasma-kservices-git
+_pkgname=arcolinux-plasma-kservices
+_destname="/etc"
 _licensedir="/usr/share/arcolinux/licenses/"
-pkgver=20.1
-pkgrel=2
-pkgdesc="calamares for arcolinux"
+pkgver=20.2
+pkgrel=4
+pkgdesc="Kservice files for ArcoLinuxB Plasma"
 arch=('any')
 url="https://github.com/arcolinux/${_pkgname}"
 license=('GPL3')
 makedepends=('git')
+conflicts=()
 depends=()
 provides=("${pkgname}")
 options=(!strip !emptydirs)
@@ -17,8 +18,8 @@ source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")
 sha256sums=('SKIP')
 install='readme.install'
 package() {
-	mkdir -p "${pkgdir}${_licensedir}${_pkgname}"
-	mv "${srcdir}/${_pkgname}/"LICENSE "${pkgdir}${_licensedir}${_pkgname}/LICENSE"
-	mkdir -p "${pkgdir}${_destname}"
-	cp -r "${srcdir}/${_pkgname}/calamares/"* "${pkgdir}${_destname}"
+	install -dm755 ${pkgdir}${_licensedir}${_pkgname}
+	install -m644  ${srcdir}/${_pkgname}/LICENSE ${pkgdir}${_licensedir}${_pkgname}
+
+	cp -r  ${srcdir}/${_pkgname}${_destname} ${pkgdir}${_destname}
 }

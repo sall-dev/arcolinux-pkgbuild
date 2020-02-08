@@ -1,0 +1,24 @@
+# Maintainer: Erik Dubois <erik.dubois@gmail.com>
+pkgname=arcolinux-tweak-tool-git
+_pkgname=arcolinux-tweak-tool
+_destname1="/usr"
+_licensedir="/usr/share/arcolinux/licenses/"
+pkgver=20.3
+pkgrel=1
+pkgdesc="arcolinux tweak tool"
+arch=('any')
+url="https://github.com/arcolinux/${_pkgname}"
+license=('GPL3')
+depends=('python-numpy' 'python-psutil')
+makedepends=('git')
+options=(!strip !emptydirs)
+conflicts=('arcolinux-tweak-tool-dev-git')
+replaces=(hefftor-skel-app-git hefftor-skelap-git)
+source=("${url}/archive/${pkgver}-${pkgrel}.tar.gz")
+sha256sums=('SKIP')
+package() {
+	install -dm755 ${pkgdir}${_licensedir}${_pkgname}
+	install -m644  ${srcdir}/${_pkgname}-${pkgver}-${pkgrel}/LICENSE ${pkgdir}${_licensedir}${_pkgname}
+
+	cp -r ${srcdir}/${_pkgname}-${pkgver}-${pkgrel}/${_destname1} ${pkgdir}
+}

@@ -1,16 +1,17 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
-pkgname=arcob-calamares-config-openbox-git
-_pkgname=arcob-calamares-config-openbox
+pkgname=arcob-calamares-config-next-git
+_pkgname=arcob-calamares-config-next
 _destname="/etc/calamares"
 _licensedir="/usr/share/arcolinux/licenses/"
-pkgver=20.1
-pkgrel=2
+pkgver=20.2
+pkgrel=88
 pkgdesc="calamares for arcolinux"
 arch=('any')
 url="https://github.com/arcolinux/${_pkgname}"
 license=('GPL3')
 makedepends=('git')
 depends=()
+conflicts=('arco-calamares-config-next-git')
 provides=("${pkgname}")
 options=(!strip !emptydirs)
 source=(${_pkgname}::"git+https://github.com/arcolinux/${_pkgname}.git")

@@ -3,7 +3,7 @@
 pkgbase=arc-kde
 pkgname=('arcolinux-arc-kde') # 'arcolinux-kvantum-theme-arc')
 pkgver=20180614
-pkgrel=3
+pkgrel=4
 pkgdesc="Arc theme for KDE Plasma 5"
 arch=(any)
 conflicts=("arc-kde")

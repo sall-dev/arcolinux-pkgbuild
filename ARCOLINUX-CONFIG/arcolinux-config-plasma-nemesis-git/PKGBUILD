@@ -1,11 +1,10 @@
 # Maintainer: Erik Dubois <erik.dubois@gmail.com>
 pkgname=arcolinux-config-plasma-nemesis-git
 _pkgname=arcolinux-config-plasma-nemesis
-_destname1="/etc/skel/.config/"
-_destname2="/etc/skel/"
+_destname="/etc"
 _licensedir="/usr/share/arcolinux/licenses/"
-pkgver=20.1
-pkgrel=2
+pkgver=20.2
+pkgrel=7
 pkgdesc="Configuration files for ArcoLinuxB Plasma Nemesis"
 arch=('any')
 url="https://github.com/arcolinux/arcolinux-config-plasma"
@@ -43,12 +42,5 @@ package() {
 	install -dm755 ${pkgdir}${_licensedir}${_pkgname}
 	install -m644  ${srcdir}/${_pkgname}/LICENSE ${pkgdir}${_licensedir}${_pkgname}
 
-	install -dm755 ${pkgdir}${_destname1}
-	cp -r  ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
-
-	#install -dm755 ${pkgdir}${_destname2}
-	#cp -r  ${srcdir}/${_pkgname}${_destname2}.gtkrc-2.0 ${pkgdir}${_destname2}
-	#cp -r  ${srcdir}/${_pkgname}${_destname2}.face ${pkgdir}${_destname2}
-	#cp -r  ${srcdir}/${_pkgname}${_destname2}.face.icon ${pkgdir}${_destname2}
-	#cp -r  ${srcdir}/${_pkgname}${_destname2}.Xresources ${pkgdir}${_destname2}
+	cp -r  ${srcdir}/${_pkgname}${_destname} ${pkgdir}${_destname}
 }
