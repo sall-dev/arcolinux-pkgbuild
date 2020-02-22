@@ -11,7 +11,7 @@ destiny=$destination4
 # 2. makepkg"
 # 1. chroot"
 
-CHOICE=1
+CHOICE=2
 
 search=arcolinux
 

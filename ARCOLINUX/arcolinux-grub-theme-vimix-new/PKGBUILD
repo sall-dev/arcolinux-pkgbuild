@@ -17,7 +17,6 @@ makedepends=('git')
 install=${pkgname}.install
 source=("$pkgname::git+https://github.com/vinceliuice/grub2-themes.git")
 md5sums=('SKIP')
-
 package() {
 	cp ../backgrounds/arcolinux.png $srcdir/$pkgname/backgrounds/background-vimix.png
 	cp ../backgrounds/* $srcdir/$pkgname/backgrounds/

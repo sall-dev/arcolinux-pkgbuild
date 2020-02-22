@@ -2,12 +2,12 @@
 pkgname=arcolinux-tweak-tool-dev-git
 _pkgname=arcolinux-tweak-tool-dev
 pkgver=20.3
-pkgrel=3
+pkgrel=32
 pkgdesc="arcolinux tweak tool"
 arch=('any')
 url="https://github.com/arcolinux/${_pkgname}"
 license=('GPL3')
-depends=('python-numpy' 'python-psutil')
+depends=('python-numpy' 'python-psutil' 'arcolinux-mirrorlist-spinoff-git')
 makedepends=('git')
 options=(!strip !emptydirs)
 conflicts=('arcolinux-tweak-tool-git')
