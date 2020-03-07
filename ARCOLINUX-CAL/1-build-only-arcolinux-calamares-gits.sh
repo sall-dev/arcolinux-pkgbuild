@@ -45,7 +45,7 @@ if [[ "$response" == [yY] ]]; then
 
 		count=0
 
-		for name in $(ls -d arco*/); do
+		for name in $(ls -d arco-calamares*/); do
 			count=$[count+1]
 			cd $name
 			tput setaf 1;echo $name;echo "Github "$count;tput sgr0;
